@@ -1,4 +1,5 @@
-import {NavbarLogo} from '@/components/layout/navbar/navbar-logo';
+import Image from "next/image";
+import Link from "next/link";
 import {NavbarCollections} from '@/components/layout/navbar/navbar-collections';
 import {NavbarCart} from '@/components/layout/navbar/navbar-cart';
 import {NavbarUser} from '@/components/layout/navbar/navbar-user';
@@ -13,7 +14,9 @@ export function Navbar() {
             <div className="container mx-auto px-4">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center gap-8">
-                        <NavbarLogo/>
+                        <Link href="/" className="text-xl font-bold">
+                            <Image src="/vendure.svg" alt="Vendure" width={40} height={27} className="h-6 w-auto" />
+                        </Link>
                         <nav className="hidden md:flex items-center gap-6">
                             <Suspense>
                                 <NavbarCollections/>
