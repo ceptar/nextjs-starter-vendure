@@ -1,13 +1,13 @@
 'use client';
 
-import { useState, useTransition } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import {useState, useTransition} from 'react';
+import {useForm} from 'react-hook-form';
+import {zodResolver} from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { loginAction } from './actions';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import {loginAction} from './actions';
+import {Button} from '@/components/ui/button';
+import {Input} from '@/components/ui/input';
+import {Card, CardContent, CardFooter} from '@/components/ui/card';
 import {
     Form,
     FormControl,
@@ -29,7 +29,7 @@ interface LoginFormProps {
     redirectTo?: string;
 }
 
-export function LoginForm({ redirectTo }: LoginFormProps) {
+export function LoginForm({redirectTo}: LoginFormProps) {
     const [isPending, startTransition] = useTransition();
     const [serverError, setServerError] = useState<string | null>(null);
 
@@ -71,7 +71,7 @@ export function LoginForm({ redirectTo }: LoginFormProps) {
                         <FormField
                             control={form.control}
                             name="username"
-                            render={({ field }) => (
+                            render={({field}) => (
                                 <FormItem>
                                     <FormLabel>Email</FormLabel>
                                     <FormControl>
@@ -82,7 +82,7 @@ export function LoginForm({ redirectTo }: LoginFormProps) {
                                             {...field}
                                         />
                                     </FormControl>
-                                    <FormMessage />
+                                    <FormMessage/>
                                 </FormItem>
                             )}
                         />
@@ -90,9 +90,18 @@ export function LoginForm({ redirectTo }: LoginFormProps) {
                         <FormField
                             control={form.control}
                             name="password"
-                            render={({ field }) => (
+                            render={({field}) => (
                                 <FormItem>
-                                    <FormLabel>Password</FormLabel>
+                                    <div className="flex items-center justify-between">
+                                        <FormLabel>Password</FormLabel>
+                                        <Link
+                                            href="/forgot-password"
+                                            className="text-muted-foreground hover:text-primary text-sm"
+                                        >
+                                            Forgot password?
+                                        </Link>
+                                    </div>
+
                                     <FormControl>
                                         <Input
                                             type="password"
@@ -101,7 +110,7 @@ export function LoginForm({ redirectTo }: LoginFormProps) {
                                             {...field}
                                         />
                                     </FormControl>
-                                    <FormMessage />
+                                    <FormMessage/>
                                 </FormItem>
                             )}
                         />
@@ -111,24 +120,16 @@ export function LoginForm({ redirectTo }: LoginFormProps) {
                                 {serverError}
                             </div>
                         )}
-                    </CardContent>
-                    <CardFooter className="flex flex-col space-y-4 mt-2">
                         <Button type="submit" className="w-full" disabled={isPending}>
                             {isPending ? 'Signing in...' : 'Sign In'}
                         </Button>
-                        <div className="text-sm text-center space-y-2">
-                            <Link
-                                href="/forgot-password"
-                                className="text-muted-foreground hover:text-primary"
-                            >
-                                Forgot password?
+                    </CardContent>
+                    <CardFooter className="flex flex-col space-y-4 mt-2">
+                        <div className="text-muted-foreground text-sm text-center">
+                            Don&apos;t have an account?{' '}
+                            <Link href={registerHref} className="hover:text-primary underline">
+                                Register
                             </Link>
-                            <div className="text-muted-foreground">
-                                Don&apos;t have an account?{' '}
-                                <Link href={registerHref} className="hover:text-primary">
-                                    Register
-                                </Link>
-                            </div>
                         </div>
                     </CardFooter>
                 </form>

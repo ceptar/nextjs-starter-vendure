@@ -203,14 +203,16 @@ export function RegistrationForm({ redirectTo }: RegistrationFormProps) {
                                 {serverError}
                             </div>
                         )}
-                    </CardContent>
-                    <CardFooter className="flex flex-col space-y-4 mt-4">
+
                         <Button type="submit" className="w-full" disabled={isPending}>
                             {isPending ? 'Creating account...' : 'Create Account'}
                         </Button>
+                    </CardContent>
+                    <CardFooter className="flex flex-col space-y-4 mt-4">
+
                         <div className="text-sm text-center text-muted-foreground">
                             Already have an account?{' '}
-                            <Link href={signInHref} className="hover:text-primary">
+                            <Link href={signInHref} className="hover:text-primary underline">
                                 Sign in
                             </Link>
                         </div>
