@@ -1,10 +1,9 @@
-'use client';
-
 /**
  * Client Component Registry
  *
- * Registry for client-side components only.
- * These components use 'use client' and can be safely imported in client components.
+ * Registry for client-side components.
+ * These components have 'use client' directives in their source files.
+ * This registry file does NOT need 'use client' - it's just a re-export barrel.
  *
  * To override a component:
  * 1. Create your custom component in @merchant/components/overrides/
