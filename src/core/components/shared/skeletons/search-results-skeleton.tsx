@@ -1,4 +1,4 @@
-import { ProductGridSkeleton } from '@core/components/shared/product-grid-skeleton';
+import { ServerComponents } from '@config/components.server.registry';
 
 export function SearchResultsSkeleton() {
     return (
@@ -10,7 +10,7 @@ export function SearchResultsSkeleton() {
 
             {/* Product Grid */}
             <div className="lg:col-span-3">
-                <ProductGridSkeleton />
+                <ServerComponents.ProductGridSkeleton />
             </div>
         </div>
     );

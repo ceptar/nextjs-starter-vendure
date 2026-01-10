@@ -7,8 +7,6 @@ async function getFeaturedCollectionProducts() {
     'use cache'
     cacheLife('days')
 
-    // Fetch featured products from a specific collection
-    // Replace 'featured' with your actual collection slug
     const result = await query(GetCollectionProductsQuery, {
         slug: "electronics",
         input: {
@@ -21,7 +19,6 @@ async function getFeaturedCollectionProducts() {
 
     return result.data.search.items;
 }
-
 
 export async function FeaturedProducts() {
     const products = await getFeaturedCollectionProducts();

@@ -1,5 +1,5 @@
 import {ResultOf} from '@/graphql';
-import {ProductCard} from './product-card';
+import {ClientComponents} from '@config/components.client.registry';
 import {Pagination} from '@core/components/shared/pagination';
 import {SortDropdown} from './sort-dropdown';
 import {SearchProductsQuery} from "@core/lib/vendure/queries";
@@ -42,7 +42,7 @@ export async function ProductGrid({productDataPromise, currentPage, take}: Produ
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {searchResult.items.map((product, i) => (
-                    <ProductCard key={'product-grid-item' + i} product={product}/>
+                    <ClientComponents.ProductCard key={'product-grid-item' + i} product={product}/>
                 ))}
             </div>
 

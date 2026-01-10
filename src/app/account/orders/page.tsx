@@ -17,8 +17,7 @@ import {
 } from '@/components/ui/pagination';
 import {ArrowRightIcon} from "lucide-react";
 import {Button} from "@/components/ui/button";
-import {Price} from '@core/components/commerce/price';
-import {OrderStatusBadge} from '@core/components/commerce/order-status-badge';
+import {ClientComponents} from '@config/components.client.registry';
 import {formatDate} from '@core/lib/format';
 import Link from "next/link";
 import {redirect} from "next/navigation";
@@ -92,14 +91,14 @@ export default async function OrdersPage(props: PageProps<'/account/orders'>) {
                                             {formatDate(order.createdAt)}
                                         </TableCell>
                                         <TableCell>
-                                            <OrderStatusBadge state={order.state}/>
+                                            <ClientComponents.OrderStatusBadge state={order.state}/>
                                         </TableCell>
                                         <TableCell>
                                             {order.lines.length}{' '}
                                             {order.lines.length === 1 ? 'item' : 'items'}
                                         </TableCell>
                                         <TableCell className="text-right">
-                                            <Price value={order.totalWithTax} currencyCode={order.currencyCode}/>
+                                            <ClientComponents.Price value={order.totalWithTax} currencyCode={order.currencyCode}/>
                                         </TableCell>
                                     </TableRow>
                                 ))}

@@ -1,18 +1,19 @@
 'use client';
 
-import {ProductCard} from "@core/components/commerce/product-card";
+import {ClientComponents} from "@config/components.client.registry";
 import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious,} from "@/components/ui/carousel";
 import {FragmentOf} from "@/graphql";
 import {ProductCardFragment} from "@core/lib/vendure/fragments";
 import {useId} from "react";
 
-interface ProductCarouselClientProps {
+interface ProductCarouselProps {
     title: string;
     products: Array<FragmentOf<typeof ProductCardFragment>>;
 }
 
-export function ProductCarousel({title, products}: ProductCarouselClientProps) {
+export function ProductCarousel({title, products}: ProductCarouselProps) {
     const id = useId();
+    const ProductCard = ClientComponents.ProductCard;
 
     return (
         <section className="py-12 md:py-16">

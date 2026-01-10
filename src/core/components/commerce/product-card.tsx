@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import {FragmentOf, readFragment} from '@/graphql';
 import {ProductCardFragment} from '@core/lib/vendure/fragments';
-import {Price} from '@core/components/commerce/price';
+import {ClientComponents} from '@config/components.client.registry';
 import {Suspense} from "react";
 import Link from "next/link";
 
@@ -41,13 +41,13 @@ export function ProductCard({product: productProp}: ProductCardProps) {
                         {product.priceWithTax.__typename === 'PriceRange' ? (
                             product.priceWithTax.min !== product.priceWithTax.max ? (
                                 <>
-                                    from <Price value={product.priceWithTax.min}/>
+                                    from <ClientComponents.Price value={product.priceWithTax.min}/>
                                 </>
                             ) : (
-                                <Price value={product.priceWithTax.min}/>
+                                <ClientComponents.Price value={product.priceWithTax.min}/>
                             )
                         ) : product.priceWithTax.__typename === 'SinglePrice' ? (
-                            <Price value={product.priceWithTax.value}/>
+                            <ClientComponents.Price value={product.priceWithTax.value}/>
                         ) : null}
                     </p>
                 </Suspense>
