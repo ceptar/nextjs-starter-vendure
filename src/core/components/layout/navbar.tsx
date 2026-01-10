@@ -9,7 +9,9 @@ import {SearchInput} from '@core/components/layout/search-input';
 import {NavbarUserSkeleton} from '@core/components/shared/skeletons/navbar-user-skeleton';
 import {SearchInputSkeleton} from '@core/components/shared/skeletons/search-input-skeleton';
 
-export function Navbar() {
+export interface NavbarProps {}
+
+export function Navbar(_props: NavbarProps) {
     return (
         <header className="fixed top-0 left-0 right-0 z-50 border-b bg-background">
             <div className="container mx-auto px-4">

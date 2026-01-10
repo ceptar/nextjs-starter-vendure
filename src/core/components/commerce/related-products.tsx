@@ -5,7 +5,7 @@ import { GetCollectionProductsQuery } from "@core/lib/vendure/queries";
 import { readFragment } from "@/graphql";
 import { ProductCardFragment } from "@core/lib/vendure/fragments";
 
-interface RelatedProductsProps {
+export interface RelatedProductsProps {
     collectionSlug: string;
     currentProductId: string;
 }

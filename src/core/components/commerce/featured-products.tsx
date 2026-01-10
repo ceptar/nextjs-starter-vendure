@@ -3,6 +3,8 @@ import {cacheLife} from "next/cache";
 import {query} from "@core/lib/vendure/api";
 import {GetCollectionProductsQuery} from "@core/lib/vendure/queries";
 
+export interface FeaturedProductsProps {}
+
 async function getFeaturedCollectionProducts() {
     'use cache'
     cacheLife('days')
@@ -20,7 +22,7 @@ async function getFeaturedCollectionProducts() {
     return result.data.search.items;
 }
 
-export async function FeaturedProducts() {
+export async function FeaturedProducts(_props: FeaturedProductsProps) {
     const products = await getFeaturedCollectionProducts();
 
     return (

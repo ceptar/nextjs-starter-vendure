@@ -11,114 +11,6 @@
  */
 
 import type {ComponentType} from 'react';
-import type {FragmentOf, ResultOf} from '@/graphql';
-import type {ProductCardFragment} from '@core/lib/vendure/fragments';
-import type {SearchProductsQuery} from '@core/lib/vendure/queries';
-
-// ============================================================================
-// Component Prop Types
-// ============================================================================
-export interface ProductCardProps {
-    product: FragmentOf<typeof ProductCardFragment>;
-}
-
-export interface PriceProps {
-    value: number;
-    currencyCode?: string;
-}
-
-export interface OrderStatusBadgeProps {
-    state: string;
-}
-
-export interface CountrySelectProps {
-    countries: Array<{ code: string; name: string }>;
-    value?: string;
-    onValueChange: (value: string) => void;
-    disabled?: boolean;
-}
-
-export interface ProductInfoProps {
-    product: {
-        id: string;
-        name: string;
-        description: string;
-        variants: Array<{
-            id: string;
-            name: string;
-            sku: string;
-            priceWithTax: number;
-            stockLevel: string;
-            options: Array<{
-                id: string;
-                code: string;
-                name: string;
-                groupId: string;
-                group: {
-                    id: string;
-                    code: string;
-                    name: string;
-                };
-            }>;
-        }>;
-        optionGroups: Array<{
-            id: string;
-            code: string;
-            name: string;
-            options: Array<{
-                id: string;
-                code: string;
-                name: string;
-            }>;
-        }>;
-    };
-    searchParams: { [key: string]: string | string[] | undefined };
-}
-
-export interface ProductImageCarouselProps {
-    images: Array<{
-        id: string;
-        preview: string;
-        source: string;
-    }>;
-}
-
-export interface ProductCarouselProps {
-    title: string;
-    products: Array<FragmentOf<typeof ProductCardFragment>>;
-}
-
-export interface SearchInputProps {
-    className?: string;
-}
-
-export interface FacetFiltersProps {
-    productDataPromise: Promise<{
-        data: ResultOf<typeof SearchProductsQuery>;
-        token?: string;
-    }>;
-}
-
-export interface PaginationProps {
-    currentPage: number;
-    totalPages: number;
-}
-
-// ============================================================================
-// Registry Type Definition
-// ============================================================================
-export interface ClientComponentRegistry {
-    ProductCard: ComponentType<ProductCardProps>;
-    Price: ComponentType<PriceProps>;
-    OrderStatusBadge: ComponentType<OrderStatusBadgeProps>;
-    CountrySelect: ComponentType<CountrySelectProps>;
-    ProductInfo: ComponentType<ProductInfoProps>;
-    ProductImageCarousel: ComponentType<ProductImageCarouselProps>;
-    ProductCarousel: ComponentType<ProductCarouselProps>;
-    SearchInput: ComponentType<SearchInputProps>;
-    FacetFilters: ComponentType<FacetFiltersProps>;
-    Pagination: ComponentType<PaginationProps>;
-}
 
 // ============================================================================
 // Component Imports - Change these to use merchant overrides
@@ -137,6 +29,50 @@ import {ProductCarousel} from '@core/components/commerce/product-carousel';
 import {SearchInput} from '@core/components/layout/search-input';
 import {FacetFilters} from '@core/components/commerce/facet-filters';
 import {Pagination} from '@core/components/shared/pagination';
+
+// ============================================================================
+// Props Type Imports
+// ============================================================================
+import type {ProductCardProps} from '@core/components/commerce/product-card';
+import type {PriceProps} from '@core/components/commerce/price';
+import type {OrderStatusBadgeProps} from '@core/components/commerce/order-status-badge';
+import type {CountrySelectProps} from '@core/components/shared/country-select';
+import type {ProductInfoProps} from '@core/components/commerce/product-info';
+import type {ProductImageCarouselProps} from '@core/components/commerce/product-image-carousel';
+import type {ProductCarouselProps} from '@core/components/commerce/product-carousel';
+import type {SearchInputProps} from '@core/components/layout/search-input';
+import type {FacetFiltersProps} from '@core/components/commerce/facet-filters';
+import type {PaginationProps} from '@core/components/shared/pagination';
+
+// Re-export Props types for consumers
+export type {
+    ProductCardProps,
+    PriceProps,
+    OrderStatusBadgeProps,
+    CountrySelectProps,
+    ProductInfoProps,
+    ProductImageCarouselProps,
+    ProductCarouselProps,
+    SearchInputProps,
+    FacetFiltersProps,
+    PaginationProps,
+};
+
+// ============================================================================
+// Registry Type Definition
+// ============================================================================
+export interface ClientComponentRegistry {
+    ProductCard: ComponentType<ProductCardProps>;
+    Price: ComponentType<PriceProps>;
+    OrderStatusBadge: ComponentType<OrderStatusBadgeProps>;
+    CountrySelect: ComponentType<CountrySelectProps>;
+    ProductInfo: ComponentType<ProductInfoProps>;
+    ProductImageCarousel: ComponentType<ProductImageCarouselProps>;
+    ProductCarousel: ComponentType<ProductCarouselProps>;
+    SearchInput: ComponentType<SearchInputProps>;
+    FacetFilters: ComponentType<FacetFiltersProps>;
+    Pagination: ComponentType<PaginationProps>;
+}
 
 // ============================================================================
 // Export Client Components Object

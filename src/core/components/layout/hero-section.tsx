@@ -1,7 +1,9 @@
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
 
-export function HeroSection() {
+export interface HeroSectionProps {}
+
+export function HeroSection(_props: HeroSectionProps) {
     return (
         <section className="relative bg-muted overflow-hidden">
             <div className="container mx-auto px-4 py-24 md:py-32">

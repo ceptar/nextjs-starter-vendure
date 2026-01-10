@@ -23,7 +23,7 @@ interface Country {
   name: string;
 }
 
-interface CountrySelectProps {
+export interface CountrySelectProps {
   countries: Country[];
   value?: string;
   onValueChange: (value: string) => void;

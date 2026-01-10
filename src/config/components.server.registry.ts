@@ -10,35 +10,45 @@
  */
 
 import type {ComponentType} from 'react';
-import type {ResultOf} from '@/graphql';
-import type {SearchProductsQuery} from '@core/lib/vendure/queries';
 
 // ============================================================================
-// Component Prop Types
+// Component Imports - Change these to use merchant overrides
 // ============================================================================
-export interface NavbarProps {}
 
-export interface FooterProps {}
+// Layout
+import {Navbar} from '@core/components/layout/navbar';
+import {Footer} from '@core/components/layout/footer';
+import {HeroSection} from '@core/components/layout/hero-section';
 
-export interface HeroSectionProps {}
+// Commerce (server)
+import {FeaturedProducts} from '@core/components/commerce/featured-products';
+import {RelatedProducts} from '@core/components/commerce/related-products';
+import {ProductGrid} from '@core/components/commerce/product-grid';
 
-export interface FeaturedProductsProps {}
+// Shared
+import {ProductGridSkeleton} from '@core/components/shared/product-grid-skeleton';
 
-export interface RelatedProductsProps {
-    collectionSlug: string;
-    currentProductId: string;
-}
+// ============================================================================
+// Props Type Imports
+// ============================================================================
+import type {NavbarProps} from '@core/components/layout/navbar';
+import type {FooterProps} from '@core/components/layout/footer';
+import type {HeroSectionProps} from '@core/components/layout/hero-section';
+import type {FeaturedProductsProps} from '@core/components/commerce/featured-products';
+import type {RelatedProductsProps} from '@core/components/commerce/related-products';
+import type {ProductGridProps} from '@core/components/commerce/product-grid';
+import type {ProductGridSkeletonProps} from '@core/components/shared/product-grid-skeleton';
 
-export interface ProductGridProps {
-    productDataPromise: Promise<{
-        data: ResultOf<typeof SearchProductsQuery>;
-        token?: string;
-    }>;
-    currentPage: number;
-    take: number;
-}
-
-export interface ProductGridSkeletonProps {}
+// Re-export Props types for consumers
+export type {
+    NavbarProps,
+    FooterProps,
+    HeroSectionProps,
+    FeaturedProductsProps,
+    RelatedProductsProps,
+    ProductGridProps,
+    ProductGridSkeletonProps,
+};
 
 // ============================================================================
 // Registry Type Definition
@@ -57,23 +67,6 @@ export interface ServerComponentRegistry {
     // Shared
     ProductGridSkeleton: ComponentType<ProductGridSkeletonProps>;
 }
-
-// ============================================================================
-// Component Imports - Change these to use merchant overrides
-// ============================================================================
-
-// Layout
-import {Navbar} from '@core/components/layout/navbar';
-import {Footer} from '@core/components/layout/footer';
-import {HeroSection} from '@core/components/layout/hero-section';
-
-// Commerce (server)
-import {FeaturedProducts} from '@core/components/commerce/featured-products';
-import {RelatedProducts} from '@core/components/commerce/related-products';
-import {ProductGrid} from '@core/components/commerce/product-grid';
-
-// Shared
-import {ProductGridSkeleton} from '@core/components/shared/product-grid-skeleton';
 
 // ============================================================================
 // Export Server Components Object

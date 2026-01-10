@@ -20,13 +20,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import {Suspense} from 'react';
-import {FragmentOf, readFragment} from '@/graphql';
+import {readFragment} from '@/graphql';
 import {ProductCardFragment} from '@core/lib/vendure/fragments';
 import {ClientComponents} from '@config/components.client.registry';
-
-interface ProductCardProps {
-  product: FragmentOf<typeof ProductCardFragment>;
-}
+import type {ProductCardProps} from '@core/components/commerce/product-card';
 
 export function ProductCard({product: productProp}: ProductCardProps) {
   const product = readFragment(ProductCardFragment, productProp);

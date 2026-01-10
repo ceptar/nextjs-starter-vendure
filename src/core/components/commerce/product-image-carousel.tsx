@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-interface ProductImageCarouselProps {
+export interface ProductImageCarouselProps {
     images: Array<{
         id: string;
         preview: string;

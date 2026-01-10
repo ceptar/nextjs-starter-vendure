@@ -3,6 +3,8 @@ import {getTopCollections} from '@core/lib/vendure/cached';
 import Image from "next/image";
 import Link from "next/link";
 
+export interface FooterProps {}
+
 
 async function Copyright() {
     'use cache'
@@ -15,7 +17,7 @@ async function Copyright() {
     )
 }
 
-export async function Footer() {
+export async function Footer(_props: FooterProps) {
     'use cache'
     cacheLife('days');
 

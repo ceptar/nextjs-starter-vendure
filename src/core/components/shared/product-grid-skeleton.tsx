@@ -1,4 +1,6 @@
-export function ProductGridSkeleton() {
+export interface ProductGridSkeletonProps {}
+
+export function ProductGridSkeleton(_props: ProductGridSkeletonProps) {
     return (
         <div className="space-y-8">
             <div className="flex items-center justify-between">

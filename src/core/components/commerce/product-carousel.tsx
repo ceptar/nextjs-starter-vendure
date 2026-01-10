@@ -6,7 +6,7 @@ import {FragmentOf} from "@/graphql";
 import {ProductCardFragment} from "@core/lib/vendure/fragments";
 import {useId} from "react";
 
-interface ProductCarouselProps {
+export interface ProductCarouselProps {
     title: string;
     products: Array<FragmentOf<typeof ProductCardFragment>>;
 }

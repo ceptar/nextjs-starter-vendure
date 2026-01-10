@@ -5,7 +5,7 @@ import {SortDropdown} from './sort-dropdown';
 import {SearchProductsQuery} from "@core/lib/vendure/queries";
 import {getActiveChannel} from '@core/lib/vendure/actions';
 
-interface ProductGridProps {
+export interface ProductGridProps {
     productDataPromise: Promise<{
         data: ResultOf<typeof SearchProductsQuery>;
         token?: string;

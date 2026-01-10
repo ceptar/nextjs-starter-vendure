@@ -5,7 +5,7 @@ import {ClientComponents} from '@config/components.client.registry';
 import {Suspense} from "react";
 import Link from "next/link";
 
-interface ProductCardProps {
+export interface ProductCardProps {
     product: FragmentOf<typeof ProductCardFragment>;
 }
 

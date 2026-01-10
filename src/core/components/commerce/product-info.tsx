@@ -10,7 +10,7 @@ import {addToCart} from '@/app/product/[slug]/actions';
 import {toast} from 'sonner';
 import {ClientComponents} from '@config/components.client.registry';
 
-interface ProductInfoProps {
+export interface ProductInfoProps {
     product: {
         id: string;
         name: string;

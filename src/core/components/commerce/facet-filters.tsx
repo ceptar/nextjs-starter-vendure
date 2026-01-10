@@ -8,7 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import {SearchProductsQuery} from "@core/lib/vendure/queries";
 
-interface FacetFiltersProps {
+export interface FacetFiltersProps {
     productDataPromise: Promise<{
         data: ResultOf<typeof SearchProductsQuery>;
         token?: string;

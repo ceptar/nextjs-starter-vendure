@@ -1,6 +1,6 @@
 'use client';
 
-interface PriceProps {
+export interface PriceProps {
     value: number;
     currencyCode?: string;
 }

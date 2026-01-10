@@ -23,7 +23,7 @@ const STATUS_CONFIG: Record<string, { color: string; label: string; icon: Lucide
     Cancelled: {color: 'bg-red-100 text-red-800', label: 'Cancelled', icon: XCircle},
 };
 
-interface OrderStatusBadgeProps {
+export interface OrderStatusBadgeProps {
     state: string;
 }
 

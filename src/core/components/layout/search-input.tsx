@@ -4,8 +4,13 @@ import {useState, useEffect, useTransition} from 'react';
 import {useRouter, useSearchParams} from 'next/navigation';
 import {Search} from 'lucide-react';
 import {Input} from '@/components/ui/input';
+import {cn} from '@core/lib/utils';
 
-export function SearchInput() {
+export interface SearchInputProps {
+    className?: string;
+}
+
+export function SearchInput({className}: SearchInputProps) {
     const router = useRouter();
     const searchParams = useSearchParams();
     const [isPending, startTransition] = useTransition();
@@ -22,7 +27,7 @@ export function SearchInput() {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="relative">
+        <form onSubmit={handleSubmit} className={cn("relative", className)}>
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground"/>
             <Input
                 type="search"
